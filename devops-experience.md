@@ -12,3 +12,9 @@
 - Monitoring and event management tool Implementations
 
 ### Docker Kubernetes Cloud [Azure and AWS Expert]
+
+- Microservices architecture and CNCF ecosystem
+- CI/CD, DevOps and Pipeline-As-Code: ArgoCD, Jenkins, Spinnaker, Gitlab CI/CD
+- Containers and Container Orchestration frameworks: Docker, Kubernetes, Amazon ECS, Amazon EKS, Amazon Fargate
+- Deep understanding of operating systems and networks fundamentals
+- Linux userspace and kernel internals.
