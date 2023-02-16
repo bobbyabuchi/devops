@@ -10,4 +10,4 @@ To create an application that uses the provided parameters:
 - Application name is lb-v1.
 - Application is based on the lb:v1 image.
 - Application should restart automatically if it crashes.
-*```kubectl run lb-v1 -- lb:v1```</p>
+### ```kubectl run lb-v1 -- lb:v1```</p>
