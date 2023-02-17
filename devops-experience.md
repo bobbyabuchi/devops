@@ -1,4 +1,5 @@
-## kudabank
+# JD
+
 - System administration and Linux skills. Practical knowledge of different build tools and CI/CD Platforms (Azure DevOps is a Plus)
 - GCP, AWS & Microsoft Azure (preferably Azure & AWS)
 - System automation, deployment, and implementation.
@@ -11,7 +12,7 @@
 - Supporting and troubleshooting relational databases and distributed platform
 - Monitoring and event management tool Implementations
 
-### Docker Kubernetes Cloud [Azure and AWS Expert]
+## Docker Kubernetes Cloud [Azure and AWS Expert]
 
 - Microservices architecture and CNCF ecosystem
 - CI/CD, DevOps and Pipeline-As-Code: ArgoCD, Jenkins, Spinnaker, Gitlab CI/CD
