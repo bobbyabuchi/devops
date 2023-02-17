@@ -31,3 +31,8 @@ spec:
       port: 80
       targetPort: 80
   type: LoadBalancer
+
+  # in this configuration file 
+  # a deployment with three replicas and a service that exposes the deployment on port 80. 
+  # kubectl apply 
+  #   command can be used to apply this configuration file to a Kubernetes cluster.
