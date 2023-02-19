@@ -1,0 +1,45 @@
+# In this script, multiple Kubernetes resources "Deployment and a Service" are defined 
+# in a single file, and separated with three short dashes --- 
+# this approach is useful for managing related resources together, or 
+# for sharing a set of resources with others.
+
+# Deployment resource: creates and manages a set of replicas for a containerized application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp-container
+          image: myapp:v1
+          ports:
+            - containerPort: 80
+---
+# Service resource: exposes that application to the network
+apiVersion: v1            
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  selector:             # defines which pods the service routes traffic to
+    app: myapp
+  ports:                # specifies which port to be exposed by service
+    - name: http        # name of the port
+      port: 80          # port number for the service
+      targetPort: 80    # port number the service is routing traffic to
+  type: LoadBalancer    # specifies the type of service, in this case, a LoadBalancer
+
+  # in this configuration file 
+  # a deployment with three replicas and a service that exposes the deployment on port 80. 
+  # kubectl apply 
+  #   command can be used to apply this configuration file to a Kubernetes cluster.
+  #     kubectl apply -f filename.yaml

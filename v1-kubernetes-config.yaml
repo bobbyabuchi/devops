@@ -1,0 +1,23 @@
+# kubernetes for simple deployment
+apiVersion: apps/v1               # the version of K8s API in use
+kind: Deployment                  # k8s resource being described here
+metadata:                         # holds the metadata about the this resource, such as name
+  name: omy-app 
+spec:                             # the desired state of the resource
+  replicas: 3                     # number of copies of the app we wanna run
+  selector:                       # defines how to select the pods for this deployment, here we want all the pods that have the 'app' label set to omy-app 
+    matchLabels:                  
+      app: omy-app                
+  template:                       # this section describes the pod template to use for this deployment
+    metadata:                     # provides metadata about pod templates such as labels
+      labels:
+        app: omy-app
+    spec:                         # describes the desired state for the pods that are created from this template
+      containers:                 # specifies containers that should be created from this template
+      - name: omy-app             # name of the container
+        image: omy-app:latest     # what Docker image to use for the container
+        ports:                    # what port to expose by the container
+        - containers:80           # what port number to expose and use by the container
+
+# this config file can be applied to a Kubernetes cluster using the 'kubectl apply' command.
+# running the command will create thre copies of 'omy-app' and manage them as a deployment resource.
