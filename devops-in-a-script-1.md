@@ -1,6 +1,6 @@
 # DevOps experience, processes and tools
 
- - **DevOps tools:** Git, Jenkins, Docker, Kubernetes, Azure and AWS. 
+- **DevOps tools:** Git, Jenkins, Docker, Kubernetes, Azure and AWS.
 
 Creating and maintaining CI/CD pipelines, building and managing infrastructure as code, and implementing monitoring and logging solutions.
 
