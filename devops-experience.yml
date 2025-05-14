@@ -1,0 +1,65 @@
+---
+- name: Deploy 3-tier web application
+  hosts: all
+  become: yes
+
+  vars:
+    web_package: nginx
+    app_package: tomcat
+    db_package: mysql-server
+
+  tasks:
+  - name: Install web server
+    apt:
+      name: "{{ web_package }}"
+      state: present
+    when: inventory_hostname in groups['web_servers']
+
+  - name: Configure web server
+    template:
+      src: templates/nginx.conf.j2
+      dest: /etc/nginx/nginx.conf
+    when: inventory_hostname in groups['web_servers']
+    notify: restart nginx
+
+  - name: Install app server
+    apt:
+      name: "{{ app_package }}"
+      state: present
+    when: inventory_hostname in groups['app_servers']
+
+  - name: Configure app server
+    template:
+      src: templates/tomcat.conf.j2
+      dest: /etc/tomcat/tomcat.conf
+    when: inventory_hostname in groups['app_servers']
+    notify: restart tomcat
+
+  - name: Install database server
+    apt:
+      name: "{{ db_package }}"
+      state: present
+    when: inventory_hostname in groups['db_servers']
+
+  - name: Configure database server
+    template:
+      src: templates/mysql.conf.j2
+      dest: /etc/mysql/mysql.conf
+    when: inventory_hostname in groups['db_servers']
+    notify: restart mysql
+
+  handlers:
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
+
+  - name: restart tomcat
+    service:
+      name: tomcat
+      state: restarted
+
+  - name: restart mysql
+    service:
+      name: mysql
+      state: restarted
