@@ -1,5 +1,5 @@
 ---
-- name: Deploy 3-tier web application
+- name: Deploy 3-tier Web application
   hosts: all
   become: yes
 
